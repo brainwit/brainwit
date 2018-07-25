@@ -1,0 +1,20 @@
+African\UserBundle\Entity\Contact:
+    properties:
+        name:
+           - NotBlank:
+                message: "Please enter name."
+
+        email:
+           - NotBlank:
+                message: "Please enter email."
+           - Email:
+                message: The email "{{ value }}" is not a valid email.     
+                
+        subject:
+           - NotBlank:
+                message: "Please enter subject."
+                
+        message:
+           - NotBlank:
+                message: "Please enter message."
+                        

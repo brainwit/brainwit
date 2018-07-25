@@ -1,0 +1,4 @@
+services:
+#    african_user.example:
+#        class: African\UserBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

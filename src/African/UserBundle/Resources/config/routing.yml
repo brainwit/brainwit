@@ -1,0 +1,8 @@
+african_user_homepage:
+    path:     /
+    defaults: { _controller: AfricanUserBundle:Default:index }
+
+african_user_contact:
+    path:     /contact
+    defaults: { _controller: AfricanUserBundle:Default:contact }
+

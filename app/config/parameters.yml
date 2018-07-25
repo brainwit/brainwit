@@ -1,0 +1,22 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: localhost
+    database_port: null
+    database_name: brainwit
+    database_user: root
+    database_password: root
+    mailer_transport: gmail
+    mailer_host: smtp.gmail.com
+    mailer_user: zomento@gmail.com
+    mailer_password: zomento!@#
+
+    # mailer_transport:  smtp
+    # mailer_encryption: ssl
+    # mailer_auth_mode:  login
+    # mailer_host:       smtp.gmail.com
+    # mailer_username: myusername@gmail.com
+    # mailer_password: mypassword
+
+    secret: ThisTokenIsNotSoSecretChangeIt
+    contact_email: pratikmoradiya@gmail.com
+    from_email: zomento@gmail.com
