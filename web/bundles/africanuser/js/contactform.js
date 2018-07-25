@@ -1,136 +1,58 @@
 jQuery(document).ready(function($) {
   "use strict";
 
-  //Contact
-  $('form.contactForm').submit(function() {
-    var f = $(this).find('.form-group'),
-      ferror = false,
-      emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
+  jQuery.validator.addMethod("phoneno", function(phone_number, element) {
+      phone_number = phone_number.replace(/\s+/g, "");
+      return this.optional(element) || phone_number.length > 9 && 
+      phone_number.match(/^((\+[1-9]{1,4}[ \-]*)|(\([0-9]{2,3}\)[ \-]*)|([0-9]{2,4})[ \-]*)*?[0-9]{3,4}?[ \-]*[0-9]{3,4}?$/);
+  }, "<br />Please specify a valid phone number.");
 
-    f.children('input').each(function() { // run all inputs
+  $("#contactForm").validate({
+         rules: {
+             name: {
+                required: true,
+                minlength: 4
+             },
+             email: {
+                required: true,
+                email: true
+             },
+             mobile: {
+                required: true,
+                phoneno: true
+             },
+             subject: {
+                required: true,
+                minlength: 4
+             },
+             message: {
+                required: true
+             },
 
-      var i = $(this); // current input
-      var rule = i.attr('data-rule');
 
-      if (rule !== undefined) {
-        var ierror = false; // error flag for current input
-        var pos = rule.indexOf(':', 0);
-        if (pos >= 0) {
-          var exp = rule.substr(pos + 1, rule.length);
-          rule = rule.substr(0, pos);
-        } else {
-          rule = rule.substr(pos + 1, rule.length);
-        }
+         },
+         messages: {
+             name: {
+               required: "Please enter your name.",
+               minlength: "Please enter minimum 4 characters."
+             },
+             email: {
+                required: "Please enter email address.",
+                email: "Please enter valid email."
+             },
+             mobile: {
+                required: "Please enter mobile number.",
+                phoneno: "Please specify a valid phone number."
+             },
+             subject: {
+               required: "Please enter subject.",
+               minlength: "Please enter minimum 4 characters."
+             },
+             message: {
+               required: "Please share your message with us."
+             }
 
-        switch (rule) {
-          case 'required':
-            if (i.val() === '') {
-              ferror = ierror = true;
-            }
-            break;
-
-          case 'minlen':
-            if (i.val().length < parseInt(exp)) {
-              ferror = ierror = true;
-            }
-            break;
-
-          case 'email':
-            if (!emailExp.test(i.val())) {
-              ferror = ierror = true;
-            }
-            break;
-
-          case 'checked':
-            if (! i.is(':checked')) {
-              ferror = ierror = true;
-            }
-            break;
-
-          case 'regexp':
-            exp = new RegExp(exp);
-            if (!exp.test(i.val())) {
-              ferror = ierror = true;
-            }
-            break;
-        }
-        i.next('.validation').html((ierror ? (i.attr('data-msg') !== undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
-      }
-    });
-    f.children('textarea').each(function() { // run all inputs
-
-      var i = $(this); // current input
-      var rule = i.attr('data-rule');
-
-      if (rule !== undefined) {
-        var ierror = false; // error flag for current input
-        var pos = rule.indexOf(':', 0);
-        if (pos >= 0) {
-          var exp = rule.substr(pos + 1, rule.length);
-          rule = rule.substr(0, pos);
-        } else {
-          rule = rule.substr(pos + 1, rule.length);
-        }
-
-        switch (rule) {
-          case 'required':
-            if (i.val() === '') {
-              ferror = ierror = true;
-            }
-            break;
-
-          case 'minlen':
-            if (i.val().length < parseInt(exp)) {
-              ferror = ierror = true;
-            }
-            break;
-        }
-        i.next('.validation').html((ierror ? (i.attr('data-msg') != undefined ? i.attr('data-msg') : 'wrong Input') : '')).show('blind');
-      }
-    });
-    if (ferror){ 
-      return false;
-    }
-    else{ 
-      var str = $(this).serialize();
-      $("#contactSubmit").attr("disabled", "disabled");
-      $.ajax({
-        type: "POST",
-        url: "/contact",
-        data: str,
-        success: function(response) {
-          // alert(msg);
-          if (response && response.error == true) {
-            
-            $("#contactSubmit").removeAttr("disabled");
-            $("#sendmessage").addClass("show");
-            $("#errormessage").removeClass("show");
-            $('.contactForm').find("input, textarea").val("");
-            $('#sendmessage').html(response.message);
-
-            window.setTimeout(function()
-            {
-              $("#sendmessage").hide();
-            },5000);
-          } else {
-            
-            $("#contactSubmit").removeAttr("disabled");
-            $("#sendmessage").removeClass("show");
-            $("#errormessage").addClass("show");
-            $('#errormessage').html(response.message);
-
-            window.setTimeout(function()
-            {
-              $("#errormessage").hide();
-            },5000);
-
-          }
-
-        }
-      });
-    }
-
-    return false;
-  });
+         }
+   });
 
 });

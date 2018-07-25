@@ -476,22 +476,30 @@ We’ve had the privilege of working with wonderful clients on many web projects
           <div id="sendmessage"></div>
           <div id="errormessage"></div>
           <form method="post" role="form" class="contactForm" id="contactForm">
+            
             <div class="form-row">
               <div class="form-group col-md-6">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" autocomplete="off" />
-                <div class="validation"></div>
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" autocomplete="off" />
+                
               </div>
               <div class="form-group col-md-6">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" autocomplete="off" />
-                <div class="validation"></div>
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" autocomplete="off" />
               </div>
             </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" autocomplete="off"/>
-              <div class="validation"></div>
+            
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <input type="text" name="mobile" class="form-control" id="mobile" placeholder="Mobile Ex:(+91 XXXXXXXXXX)" autocomplete="off" />
+                
+              </div>
+              <div class="form-group col-md-6">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" autocomplete="off"/>
+                
+              </div>
             </div>
+            
             <div class="form-group">
-              <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+              <textarea class="form-control" name="message" rows="5" placeholder="Message"></textarea>
               <div class="validation"></div>
             </div>
             <div class="text-center"><button type="submit" id="contactSubmit">Send Message</button></div>
@@ -532,6 +540,8 @@ We’ve had the privilege of working with wonderful clients on many web projects
 <script src="{{ asset('bundles/africanuser/lib/sticky/sticky.js') }}"></script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXThU42N7AYW7V0J4GukXs7YZrNwbPKsY"></script>
+
+<script src="{{ asset('bundles/africanuser/lib/jquery/jquery.validate.min.js') }}"></script>
 
 <!-- Contact Form JavaScript File -->
 <script src="{{ asset('bundles/africanuser/js/contactform.js') }}"></script>
