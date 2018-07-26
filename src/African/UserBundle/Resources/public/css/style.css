@@ -1159,6 +1159,9 @@ padding:15px;
 
 .google-map{margin:25px 0 25px 0}
 
+label.error {color: red; margin: 0 0 20px; font-weight: 400; font-size: 13px;}
+
+
 @media (max-width:1199px) {
 .banner_inner img{width:60% !important;float:inherit !important;margin: 0 auto;}
 .banner_inner {width: 465px/*420px*/;}

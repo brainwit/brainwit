@@ -465,11 +465,11 @@ We’ve had the privilege of working with wonderful clients on many web projects
 
         </div>
       </div>
-      <div class="container">
-          <div class="google-map">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.845190768745!2d72.52530431485407!3d23.029455684949614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84c9460e068f%3A0x2b223b0b3052ea19!2sSatyam+Mall!5e0!3m2!1sen!2sin!4v1530804695374" width="100%" height="350" frameborder="0" style="border:0" allowfullscreen></iframe>
+      <!-- <div class="container">
+          <div class="google-map" id="google-map">
+              
           </div>
-      </div>
+      </div> -->
 
       <div class="container">
         <div class="form">
@@ -480,21 +480,18 @@ We’ve had the privilege of working with wonderful clients on many web projects
             <div class="form-row">
               <div class="form-group col-md-6">
                 <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" autocomplete="off" />
-                
               </div>
               <div class="form-group col-md-6">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" autocomplete="off" />
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" autocomplete="off"/>
               </div>
             </div>
             
             <div class="form-row">
               <div class="form-group col-md-6">
                 <input type="text" name="mobile" class="form-control" id="mobile" placeholder="Mobile Ex:(+91 XXXXXXXXXX)" autocomplete="off" />
-                
               </div>
               <div class="form-group col-md-6">
-                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" autocomplete="off"/>
-                
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" autocomplete="off" />
               </div>
             </div>
             
@@ -527,9 +524,10 @@ We’ve had the privilege of working with wonderful clients on many web projects
 
 {% block javascript %}
 
+
+
 <!-- JS -->
 <script src="{{ asset('bundles/africanuser/lib/jquery/jquery.min.js') }}"></script>
-<script src="{{ asset('bundles/africanuser/lib/jquery/jquery-migrate.min.js') }}"></script>
 <script src="{{ asset('bundles/africanuser/lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('bundles/africanuser/lib/easing/easing.min.js') }}"></script>
 <script src="{{ asset('bundles/africanuser/lib/superfish/hoverIntent.js') }}"></script>
@@ -538,8 +536,6 @@ We’ve had the privilege of working with wonderful clients on many web projects
 <script src="{{ asset('bundles/africanuser/lib/owlcarousel/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('bundles/africanuser/lib/magnific-popup/magnific-popup.min.js') }}"></script>
 <script src="{{ asset('bundles/africanuser/lib/sticky/sticky.js') }}"></script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXThU42N7AYW7V0J4GukXs7YZrNwbPKsY"></script>
 
 <script src="{{ asset('bundles/africanuser/lib/jquery/jquery.validate.min.js') }}"></script>
 
