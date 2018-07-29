@@ -27,6 +27,8 @@
 {% endblock css %}
 
 <body id="body">
+
+  <div class="loading" style="display:none;"><img src="img/loader.png"></div>
   <!--==========================
     Top Bar
   ============================-->
@@ -350,16 +352,6 @@ We’ve had the privilege of working with wonderful clients on many web projects
               </div>
             </div>
           </div>
-          
-          <div class="team">
-            <div class="member">
-              <div class="pic"><img src="img/team-1.jpg" alt=""></div>
-              <div class="details">
-                <h4>Vimal Javia</h4>
-                <span>CHIEF TECHNOLOGY OFFICER</span>
-              </div>
-            </div>
-          </div>
 
           <div class="team">
             <div class="member">
@@ -383,30 +375,10 @@ We’ve had the privilege of working with wonderful clients on many web projects
 
           <div class="team">
             <div class="member">
-              <div class="pic"><img src="img/team-2.jpg" alt=""></div>
-              <div class="details">
-                <h4>Ridhi Depani</h4>
-                <span>Hr</span>
-              </div>
-            </div>
-          </div>
-          
-          <div class="team">
-            <div class="member">
               <div class="pic"><img src="img/team-1.jpg" alt=""></div>
               <div class="details">
-                <h4>Ankit Patel</h4>
-                <span>Designer Manager</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="team">
-            <div class="member">
-              <div class="pic"><img src="img/team-1.jpg" alt=""></div>
-              <div class="details">
-                <h4>Ravi Vaishnani</h4>
-                <span>Sr. Developer</span>
+                <h4>Ankit Moradiya</h4>
+                <span>Design Manager</span>
               </div>
             </div>
           </div>
@@ -421,7 +393,6 @@ We’ve had the privilege of working with wonderful clients on many web projects
             </div>
           </div>
           
-
         </div>
         
       </div>
@@ -434,7 +405,7 @@ We’ve had the privilege of working with wonderful clients on many web projects
       <div class="container">
         <div class="section-header">
           <h2>Contact Us</h2>
-          <p>Please fill out a form below or mobile, e-mail us and we will be in touch with you shortly.</p>
+          <p>Tell us your requirements and we will get back to you as soon as we can, Please fill out a form below or mobile, e-mail us and we will be in touch with you shortly.</p>
         </div>
 
         <div class="row contact-info">
@@ -475,7 +446,7 @@ We’ve had the privilege of working with wonderful clients on many web projects
         <div class="form">
           <div id="sendmessage"></div>
           <div id="errormessage"></div>
-          <form method="post" role="form" class="contactForm" id="contactForm">
+          <form role="form" class="contactForm" id="contactForm">
             
             <div class="form-row">
               <div class="form-group col-md-6">
@@ -523,9 +494,6 @@ We’ve had the privilege of working with wonderful clients on many web projects
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
 {% block javascript %}
-
-
-
 <!-- JS -->
 <script src="{{ asset('bundles/africanuser/lib/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('bundles/africanuser/lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

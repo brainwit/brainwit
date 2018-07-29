@@ -1,3 +1,5 @@
+
+
 jQuery(document).ready(function($) {
   "use strict";
 
@@ -29,7 +31,6 @@ jQuery(document).ready(function($) {
                 required: true
              },
 
-
          },
          messages: {
              name: {
@@ -54,5 +55,64 @@ jQuery(document).ready(function($) {
 
          }
    });
+
+  // check form valid or not than submit data.
+  $("#contactSubmit").click(function () {
+      
+      if ($("#contactForm").valid()) {
+         
+         $.ajax({
+            type: "POST",
+            url: "/contact",
+            data: $('#contactForm').serialize(),
+            beforeSend: function() {
+                $(".loading").show();
+            },
+            success: function(response) {
+              
+              if (response.error) {
+
+                $('#sendmessage').html(response.message);
+                $("#sendmessage").show();
+                $("#errormessage").hide();
+                $('.contactForm').find("input, textarea").val("");
+
+                setTimeout(function(){
+                  $("#errormessage").hide();
+                  $("#sendmessage").hide();
+                },7500);
+
+              } else {
+
+                $("#sendmessage").hide();
+                $("#errormessage").show();
+                $('#errormessage').html(response.message);
+
+                setTimeout(function(){
+                  $("#errormessage").hide();
+                  $("#sendmessage").hide();
+                },7500);
+
+              }
+
+              $(".loading").hide();
+            },
+            error: function(xhr) {
+                $("#errormessage").addClass("show");
+                $('#errormessage').html("Something went to wrong, please try again after sometime Thanks!");
+                
+                setTimeout(function(){
+                  $("#errormessage").hide();
+                  $("#sendmessage").hide();
+                },7500);
+
+                $(".loading").hide();
+            },
+
+
+          });
+          return false;
+      }
+  });
 
 });
